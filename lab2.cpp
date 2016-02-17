@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "User.h"
+#include <string>
 
 
 int main() {
@@ -9,32 +10,35 @@ int main() {
 
 	cout << "Please enter a command (Create, Update, View, Favorites, or Quit): \n";
 	cin >> command;
+	cin.ignore(1000, '\n');
 
 	while (command != "Quit") {
 		if (command == "Create") {
 			// Execute createUser() function
-			createUser(User.user);
+			createUser(user);
 		}
 		else if (command == "Update") {
 				// Execute updateUser() function
-			updateUser(User.user);
+			updateUser(user);
 		}
 		else if (command == "View") {
 				// Execute viewUser() function
-			viewUser(User.user);
+			viewUser(user);
 		}
 		else if (command == "Favorites") {
 			// Execute favoritesUser() function
-			favoritesUser(User.user);
+			favoritesUser(user);
 		}
 		else {
-			cout << "Unrecognized command. What would you like to run? \n";
-			cout << "Please enter a command (Create, Update, View, Favorites, or Quit): \n";
-			cin >> command;
-		}	
+			cout << "INVALID COMMAND \n";
+		}
+
+	cout << "\nPlease enter a command (Create, Update, View, Favorites, or Quit): \n";
+	cin >> command;
+	cin.ignore(1000, '\n');	
 
 	}
-	quitProgram(User.user);
+	quitProgram(user);
 
 	return 0;
 }
